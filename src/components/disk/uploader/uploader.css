@@ -1,0 +1,49 @@
+.uploader {
+  height: 300px;
+  width: 20vw;
+  position: fixed;
+  z-index: 1;
+  background-color: rgba(22, 178, 218, 0.726);
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  overflow-y: auto;
+}
+.uploader__header {
+  display: flex;
+  justify-content: space-between;
+}
+.uploader__title {
+  color: #176825;
+  font-weight: 600;
+}
+.upload-file {
+  background-color: rgba(22, 178, 218, 0.726);
+  border-radius: 8px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  position: relative;
+}
+.upload-file__header {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+}
+.upload-file__progressBar {
+  height: 1rem;
+  border-radius: 8px;
+  background-color: rgba(2, 255, 86, 0.5);
+  display: flex;
+  margin: 3px 0;
+}
+.upload-file__uploadBar {
+  background-color: #176825;
+  border-radius: 8px;
+}
+.upload-file__percent {
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  line-height: 1;
+}

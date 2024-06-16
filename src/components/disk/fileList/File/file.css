@@ -1,0 +1,67 @@
+.file {
+  margin: 5px 0;
+  padding: 15px 0;
+  height: 70px;
+  border-bottom: solid 1px rgba(22, 178, 218, 0.726);
+  display: grid;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  background: rgba(37, 192, 179, 0.123);
+  align-items: center;
+}
+.file:hover {
+  background: rgba(37, 192, 120, 0.123);
+  cursor: pointer;
+}
+.file:hover .file__date {
+  grid-column-start: 3;
+}
+.file:hover .file__size {
+  grid-column-start: 4;
+}
+.file:hover #btn__delete,
+.file:hover #btn__download {
+  display: grid;
+}
+.file__img {
+  height: 30px;
+  width: 30px;
+  justify-self: center;
+}
+.file__date {
+  grid-column-start: 5;
+  justify-self: center;
+}
+.file__size {
+  grid-column-start: 6;
+  justify-self: center;
+}
+.file #btn__delete,
+.file #btn__download {
+  display: none;
+  margin: 0 10px;
+}
+.file #btn__download {
+  background: rgba(2, 255, 86, 0.5);
+  color: #176825;
+}
+.file #btn__download:hover {
+  box-shadow: 0 0 5px #17682573;
+}
+.file-plate {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.file-plate__img {
+  height: 100px;
+  width: 100px;
+}
+.file-plate__btns {
+  display: none;
+}
+.file-plate:hover .file-plate__btns {
+  display: flex;
+}

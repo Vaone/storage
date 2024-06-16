@@ -1,0 +1,42 @@
+@import "../../../utils/colors.less";
+
+.btn {
+  min-width: 100px;
+  padding: 10px;
+  cursor: pointer;
+
+  background: @darkred;
+  border-radius: 10px;
+  border: none;
+
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  transition: box-shadow linear 0.3s;
+
+  &:hover {
+    box-shadow: 0 0 10px @darkred;
+  }
+}
+
+.btnGreen {
+  background: @lightgreen;
+  color: @darkgreen;
+  &:hover {
+    box-shadow: 0 0 10px @lightgreen;
+  }
+}
+
+.btnClose {
+  position: absolute;
+  top: 0;
+  right: 10px;
+
+  min-width: auto;
+
+  &._sm {
+    padding: 3px;
+    border-radius: 5px;
+    background: @spectral;
+  }
+}

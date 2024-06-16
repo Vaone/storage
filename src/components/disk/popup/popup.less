@@ -1,0 +1,41 @@
+.popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -1000px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,.5);
+
+  transition: top ease-in-out .8s;
+
+  &__wrapper{
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+
+    position: relative;
+
+    &>.btn {
+      margin-top: 10px;
+    }
+  }
+
+  &__header{
+    display: flex;
+    justify-content: center;
+  }
+  &__title{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+._visible {
+  top: 0;
+  left: 0;
+}

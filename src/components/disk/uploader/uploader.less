@@ -1,0 +1,58 @@
+@import '../../../utils/colors.less';
+
+.uploader {
+  height: 300px;
+  width: 20vw;
+  position: fixed;
+  z-index: 1;
+  background-color: @rainforest;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  overflow-y: auto;
+
+  &__header {
+    display: flex; 
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: @darkgreen;
+    font-weight: 600;
+  }
+}
+
+.upload-file {
+  background-color: @rainforest;
+  border-radius: 8px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  position: relative;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+  }
+
+  &__progressBar {
+    height: 1rem;
+    border-radius: 8px;
+    background-color: @lightgreen;
+    display: flex;
+    margin: 3px 0;
+  }
+
+  &__uploadBar {
+    background-color: @darkgreen;
+    // width: 0;
+    border-radius: 8px;
+  }
+
+  &__percent {
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    line-height: 1;
+  }
+}

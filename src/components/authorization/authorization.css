@@ -1,0 +1,17 @@
+.registration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+  height: 100%;
+}
+.registration__header {
+  font-size: 30px;
+  font-weight: 600;
+  color: rgba(22, 178, 218, 0.726);
+  margin-bottom: 10px;
+}
+.registration > .btn {
+  margin-top: 10px;
+}

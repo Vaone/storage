@@ -1,0 +1,12 @@
+.myinput {
+  margin-top: 10px;
+  min-width: 300px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.myinput:focus {
+  outline: none;
+}
