@@ -36,7 +36,7 @@ export function getFiles(dirId, sort) {
 export function createDir(dirId, name) {
   return async (dispatch) => {
     try {
-      const response = await axios.post('${API_URL}api/files', 
+      const response = await axios.post(`${API_URL}api/files`,
       // body of request
       {
         name,
@@ -62,12 +62,12 @@ export function uploadFile(file, dirId) {
       if (dirId) {
         //set parentFolder if exist
         formData.append('parent', dirId)
-      };
+      }
       const uploadFile = {name: file.name, progress: 0, id: Date.now()};
       dispatch(showUploder());
       dispatch(addUploadFile(uploadFile))
       // send files to server
-      const response = await axios.post('${API_URL}api/files/upload', formData,  
+      const response = await axios.post(`${API_URL}api/files/upload`, formData,
       {
         headers: {Authorization: `Bearer ${localStorage.getItem('token')}`},
         // progress event listener
