@@ -1,4 +1,3 @@
-import React from 'react';
 import './uploader.css';
 import Btn from '../../UI/button/Btn';
 import UploadFile from './UploadFile';

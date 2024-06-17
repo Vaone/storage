@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./registration.css";
 import Input from "../UI/input/Input";
 import { registration } from "../../actions/user";

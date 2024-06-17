@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./authorization.css";
 import Input from "../UI/input/Input";
 import { login } from "../../actions/user";

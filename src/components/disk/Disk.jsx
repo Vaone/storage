@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFiles, uploadFile } from "../../actions/file";
 import {
@@ -130,7 +130,7 @@ const Disk = () => {
         </div>
       </div>
 
-      <FileList />
+      <FileList sort={sort}/>
       <Popup />
       <Uploader />
     </div>

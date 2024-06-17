@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeUploadFile } from '../../../reducers/uploadReducer';
 import Btn from '../../UI/button/Btn';

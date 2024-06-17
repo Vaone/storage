@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./navbar.css";
 import Logo from "../../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
