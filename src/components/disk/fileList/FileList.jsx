@@ -3,10 +3,13 @@ import { File } from "./File/File";
 import "./fileList.css";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import PropTypes from "prop-types";
+import { useRef } from "react";
 
 export const FileList = ({sort}) => {
   const files = useSelector((state) => state.files.files);
   const filesView = useSelector((state) => state.files.filesView);
+
+  const nodeRef = useRef(null);
 
   if (files.length === 0) {
     return (
@@ -21,12 +24,13 @@ export const FileList = ({sort}) => {
         <TransitionGroup>
           {files.map((file) => (
             <CSSTransition
+              nodeRef={nodeRef}
               key={file._id}
               timeout={500}
               classNames={"file"}
               exit={false}
             >
-              <File file={file} />
+              <File ref={nodeRef} sort={sort} file={file} />
             </CSSTransition>
           ))}
         </TransitionGroup>
@@ -44,12 +48,13 @@ export const FileList = ({sort}) => {
         <TransitionGroup>
           {files.map((file) => (
             <CSSTransition
+              nodeRef={nodeRef}
               key={file._id}
               timeout={500}
               classNames={"file"}
               exit={false}
             >
-              <File sort={sort} file={file} />
+              <File sort={sort} file={file} ref={nodeRef}/>
             </CSSTransition>
           ))}
         </TransitionGroup>

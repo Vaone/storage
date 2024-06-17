@@ -13,15 +13,8 @@ export const Input = (props) => {
 };
 
 Input.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  value: PropTypes.string,
   setValue: PropTypes.func.isRequired,
   type: PropTypes.string,
   placeholder: PropTypes.string,
-  className: PropTypes.string,
-};
-
-Input.defaultProps = {
-  type: 'text',
-  placeholder: '',
-  className: '',
 };

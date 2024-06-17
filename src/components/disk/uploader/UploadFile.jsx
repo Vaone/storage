@@ -28,7 +28,7 @@ export const UploadFile = ({file}) => {
 
 UploadFile.propTypes = {
     file: PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         progress: PropTypes.number.isRequired,
     }).isRequired,

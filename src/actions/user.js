@@ -53,7 +53,7 @@ export const uploadAvatar =  (file) => {
           )
           dispatch(setUser(response.data))
       } catch (e) {
-          console.log(e)
+          console.error(e)
       }
   }
 }
@@ -66,7 +66,7 @@ export const deleteAvatar =  () => {
           )
           dispatch(setUser(response.data))
       } catch (e) {
-          console.log(e)
+          console.error(e)
       }
   }
 }

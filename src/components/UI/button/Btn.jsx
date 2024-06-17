@@ -13,7 +13,3 @@ Btn.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
 };
-
-Btn.defaultProps = {
-  className: '',
-};

@@ -7,8 +7,9 @@ import { Btn } from '../../../UI/button/Btn';
 import { downloadFile, deleteFile, getFiles } from '../../../../actions/file';
 import sizeFormat from '../../../../utils/sizeFormat';
 import PropTypes from "prop-types";
+import { forwardRef } from "react";
 
-export const File = (props) => {
+export const File = forwardRef((props, ref) => {
   const {file, sort} = props
   const dispatch = useDispatch();
   const currentDir = useSelector(state => state.files.currentDir);
@@ -37,7 +38,7 @@ export const File = (props) => {
 
   if (filesView === 'plate') {
     return (
-      <div className='file-plate' onClick={() => openDir(file)}>
+      <div className='file-plate' onClick={() => openDir(file)} ref={ref}>
         <img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className="file-plate__img"/>
         <div className="file-plate__name">{file.name}</div>
         <div className="file-plate__btns"> 
@@ -49,7 +50,7 @@ export const File = (props) => {
   }
   if (filesView === 'list') {
     return (
-      <div className='file' onClick={() => openDir(file)}>
+      <div className='file' onClick={() => openDir(file)} ref={ref}>
         <img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className="file__img"/>
         <div className="file__name">{file.name}</div>
         <div className="file__date">{file.date.slice(0,10)}</div>
@@ -59,8 +60,7 @@ export const File = (props) => {
       </div>
     )
   }
-  
-};
+});
 
 File.propTypes = {
     file: PropTypes.shape({

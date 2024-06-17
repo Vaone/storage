@@ -73,7 +73,6 @@ export function uploadFile(file, dirId) {
         // progress event listener
         onUploadProgress: progressEvent => {
           const totalLength = progressEvent.lengthComputable ? progressEvent.total : progressEvent.target.getResponseHeader('content-length') || progressEvent.target.getResponseHeader('x-decompressed-content-length');
-          // console.log('total', totalLength);
           if (totalLength) {
             uploadFile.progress = Math.round((progressEvent.loaded)*100 / totalLength)
             dispatch(changeUploadFile(uploadFile))
