@@ -6,13 +6,13 @@ import {
   setPopupVisible,
   setFilesView,
 } from "../../reducers/fileReducer";
-import Btn from "../UI/button/Btn";
-import FileList from "./fileList/FileList";
+import { Btn } from "../UI/button/Btn";
+import { FileList } from "./fileList/FileList";
 import "./disk.css";
-import Popup from "./popup/Popup";
-import Uploader from "./uploader/Uploader";
+import { Popup } from "./popup/Popup";
+import { Uploader } from "./uploader/Uploader";
 
-const Disk = () => {
+export const Disk = () => {
   // hook useDispatch
   const dispatch = useDispatch();
   // get current directory from state
@@ -146,5 +146,3 @@ const Disk = () => {
     </div>
   );
 };
-
-export default Disk;

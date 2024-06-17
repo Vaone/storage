@@ -1,12 +1,11 @@
-import React, {useEffect} from "react";
+import { useEffect } from "react";
 
 import "./app.css";
-import { useSelector, useDispatch } from "react-redux";
-import {auth} from '../actions/user.js';
-import {Router} from "./router.jsx";
+import { useDispatch } from "react-redux";
+import { auth } from '../actions/user.js';
+import { Router } from "./router.jsx";
 
-function App() {
-  const isAuth = useSelector((state) => state.user.isAuth);
+export function App() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -19,5 +18,3 @@ function App() {
       </div>
   );
 }
-
-export default App;

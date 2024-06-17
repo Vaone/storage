@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { removeUploadFile } from '../../../reducers/uploadReducer';
-import Btn from '../../UI/button/Btn';
+import { Btn } from '../../UI/button/Btn';
+import PropTypes from "prop-types";
 
-const UploadFile = ({file}) => {
+export const UploadFile = ({file}) => {
 
   const dispatch = useDispatch();
 
@@ -25,4 +26,10 @@ const UploadFile = ({file}) => {
   )
 };
 
-export default UploadFile;
+UploadFile.propTypes = {
+    file: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        progress: PropTypes.number.isRequired,
+    }).isRequired,
+};

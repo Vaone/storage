@@ -1,17 +1,12 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import File from "./File/File";
+import { File } from "./File/File";
 import "./fileList.css";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import PropTypes from "prop-types";
 
-const FileList = () => {
+export const FileList = ({sort}) => {
   const files = useSelector((state) => state.files.files);
   const filesView = useSelector((state) => state.files.filesView);
-
-  // const files = [
-  //   { _id: 1, name: "direc", type: "dir", size: "5gb", date: "20.03.2021" },
-  //   { _id: 2, name: "direc2", type: "jpg", size: "4gb", date: "25.04.2021" },
-  // ].map((file) => <File key={file._id} file={file}/>);
 
   if (files.length === 0) {
     return (
@@ -54,14 +49,15 @@ const FileList = () => {
               classNames={"file"}
               exit={false}
             >
-              <File file={file} />
+              <File sort={sort} file={file} />
             </CSSTransition>
           ))}
         </TransitionGroup>
       </div>
     );
   }
-  
 };
 
-export default FileList;
+FileList.propTypes = {
+    sort: PropTypes.string.isRequired,
+};

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import "./authorization.css";
-import Input from "../UI/input/Input";
+import { Input } from "../UI/input/Input";
 import { login } from "../../actions/user";
 import { useDispatch } from "react-redux";
-import Btn from "../UI/button/Btn";
+import { Btn } from "../UI/button/Btn";
 
-const Login = () => {
+export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -49,5 +49,3 @@ const Login = () => {
     </div>
   );
 };
-
-export default Login;

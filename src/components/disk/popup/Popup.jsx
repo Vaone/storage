@@ -2,11 +2,11 @@ import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPopupVisible } from '../../../reducers/fileReducer';
 import { createDir } from '../../../actions/file';
-import Btn from '../../UI/button/Btn';
-import Input from '../../UI/input/Input';
+import { Btn } from '../../UI/button/Btn';
+import { Input } from '../../UI/input/Input';
 import './popup.css';
 
-const Popup = () => {
+export const Popup = () => {
   // state name of directory
   const [nameDir, setNameDir] = useState('');
   // get popup className from redux-store
@@ -39,5 +39,3 @@ const Popup = () => {
     </div>
   )
 };
-
-export default Popup;

@@ -1,7 +1,7 @@
-import {useDispatch} from "react-redux";
-import {deleteAvatar, uploadAvatar} from "../../actions/user";
+import { useDispatch } from "react-redux";
+import { deleteAvatar, uploadAvatar } from "../../actions/user";
 
-const Profile = () => {
+export const Profile = () => {
     const dispatch = useDispatch()
 
     function changeHandler(e) {
@@ -16,5 +16,3 @@ const Profile = () => {
         </div>
     );
 };
-
-export default Profile;

@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import "./registration.css";
-import Input from "../UI/input/Input";
+import { Input } from "../UI/input/Input";
 import { registration } from "../../actions/user";
-import Btn from "../UI/button/Btn";
+import { Btn } from "../UI/button/Btn";
 
-const Registration = () => {
+export const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -51,5 +51,3 @@ const Registration = () => {
     </div>
   );
 };
-
-export default Registration;

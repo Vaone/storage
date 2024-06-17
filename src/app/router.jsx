@@ -1,10 +1,10 @@
-import {createBrowserRouter, Navigate, Outlet,  RouterProvider} from "react-router-dom";
-import Registration from "../components/registration/Registration.jsx";
-import Login from "../components/authorization/Login.jsx";
-import Profile from "../components/profile/Profile.jsx";
-import Disk from "../components/disk/Disk.jsx";
-import {Layout} from "../components/layout/Layout.jsx";
-import {useSelector} from "react-redux";
+import { createBrowserRouter, Navigate, Outlet, RouterProvider } from "react-router-dom";
+import { Registration } from "../components/registration/Registration.jsx";
+import { Login } from "../components/authorization/Login.jsx";
+import { Profile } from "../components/profile/Profile.jsx";
+import { Disk } from "../components/disk/Disk.jsx";
+import { Layout } from "../components/layout/Layout.jsx";
+import { useSelector } from "react-redux";
 
 const PrivateRoutes = () => {
     const isAuth = useSelector((state) => state.user.isAuth);

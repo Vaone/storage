@@ -1,10 +1,10 @@
 import './uploader.css';
-import Btn from '../../UI/button/Btn';
-import UploadFile from './UploadFile';
+import { Btn } from '../../UI/button/Btn';
+import { UploadFile } from './UploadFile';
 import { useDispatch, useSelector } from 'react-redux';
 import { hideUploder } from '../../../reducers/uploadReducer';
 
-const Uploader = () => {
+export const Uploader = () => {
 
   const files = useSelector(state => state.upload.files)
 
@@ -23,5 +23,3 @@ const Uploader = () => {
     </div>
   )
 };
-
-export default Uploader;

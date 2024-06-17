@@ -1,10 +1,10 @@
-import {applyMiddleware, combineReducers, createStore} from 'redux';
-import fileReducer from './fileReducer';
-import uploadReducer from './uploadReducer';
-import userReducer from './userReducer';
-import appReducer from './appReducer';
-import {composeWithDevTools} from "@redux-devtools/extension";
-import {thunk} from "redux-thunk";
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { fileReducer } from './fileReducer';
+import { uploadReducer } from './uploadReducer';
+import { userReducer } from './userReducer';
+import { appReducer } from './appReducer';
+import { composeWithDevTools } from "@redux-devtools/extension";
+import { thunk } from "redux-thunk";
 
 const rootReducer = combineReducers({
   user: userReducer,

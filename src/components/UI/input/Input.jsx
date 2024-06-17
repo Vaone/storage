@@ -1,6 +1,7 @@
 import './input.css';
+import PropTypes from "prop-types";
 
-const Input = (props) => {
+export const Input = (props) => {
   return (
     <input 
       value={props.value} 
@@ -11,4 +12,16 @@ const Input = (props) => {
   )
 };
 
-export default Input;
+Input.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  setValue: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  placeholder: PropTypes.string,
+  className: PropTypes.string,
+};
+
+Input.defaultProps = {
+  type: 'text',
+  placeholder: '',
+  className: '',
+};

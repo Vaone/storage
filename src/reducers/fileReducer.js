@@ -15,7 +15,7 @@ const defaultState = {
   filesView: 'list'
 }
 
-export default function fileReducer(state = defaultState, action) {
+export function fileReducer(state = defaultState, action) {
   switch (action.type) {
     case SET_FILES:
       // return state with chanched files by action.payload(files)
@@ -41,7 +41,6 @@ export default function fileReducer(state = defaultState, action) {
       return state
   }
 }
-
 
 // action creators
 export const setFiles = (files) => ({type: SET_FILES, payload: files});

@@ -1,6 +1,7 @@
 import './btn.css';
+import PropTypes from "prop-types";
 
-const Btn = ({children, ...props}) => {
+export const Btn = ({children, ...props}) => {
   return (
     <button {...props} className={!props.className ? 'btn' : `btn ${props.className}`}>
       {children}
@@ -8,4 +9,11 @@ const Btn = ({children, ...props}) => {
   )
 };
 
-export default Btn;
+Btn.propTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+};
+
+Btn.defaultProps = {
+  className: '',
+};

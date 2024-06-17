@@ -1,15 +1,15 @@
-import React from 'react';
 import './file.css';
 import dirLogo from '../../../../assets/img/folder.svg';
 import fileLogo from '../../../../assets/img/file.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { pushToStack, setCurrentDir } from '../../../../reducers/fileReducer';
-import Btn from '../../../UI/button/Btn';
-import {downloadFile, deleteFile} from '../../../../actions/file';
+import { Btn } from '../../../UI/button/Btn';
+import { downloadFile, deleteFile, getFiles } from '../../../../actions/file';
 import sizeFormat from '../../../../utils/sizeFormat';
+import PropTypes from "prop-types";
 
-const File = ({file}) => {
-  
+export const File = (props) => {
+  const {file, sort} = props
   const dispatch = useDispatch();
   const currentDir = useSelector(state => state.files.currentDir);
   const filesView = useSelector(state => state.files.filesView);
@@ -30,7 +30,9 @@ const File = ({file}) => {
 
   function deleteClickHandler(e) {
     e.stopPropagation();
-    dispatch(deleteFile(file))
+    dispatch(deleteFile(file)).then(()=>{
+        dispatch(getFiles(currentDir, sort))
+    })
   }
 
   if (filesView === 'plate') {
@@ -60,4 +62,14 @@ const File = ({file}) => {
   
 };
 
-export default File;
+File.propTypes = {
+    file: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        size: PropTypes.number,
+        date: PropTypes.string.isRequired,
+    }).isRequired,
+    sort: PropTypes.string.isRequired,
+};
+

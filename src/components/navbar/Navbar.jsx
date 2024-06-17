@@ -7,9 +7,9 @@ import { searchFiles, getFiles } from "../../actions/file";
 import { showLoader } from "../../reducers/appReducer";
 import defaultAvatar from "../../assets/img/defaultAvatar.svg";
 import { API_URL } from "../../config";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+export const Navbar = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
   const currentDir = useSelector((state) => state.files.currentDir);
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -92,5 +92,3 @@ const Navbar = () => {
     </div>
   );
 };
-
-export default Navbar;
