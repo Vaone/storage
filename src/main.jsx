@@ -1,4 +1,4 @@
-import ReactDOM, {createRoot} from 'react-dom/client'
+import {createRoot} from 'react-dom/client'
 import { App } from './app/App.jsx'
 import './index.css'
 import { Provider } from "react-redux";
