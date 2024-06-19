@@ -1,1 +1,1 @@
-export const API_URL = 'http://95.169.204.224:80/'
+export const API_URL = 'http://choogi.xyz:5000/'
