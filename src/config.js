@@ -1,1 +1,1 @@
-export const API_URL = 'http://choogi.xyz:5000/'
+export const API_URL = 'https://choogi.xyz:5000/'
