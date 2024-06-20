@@ -1,4 +1,4 @@
-import './input.css';
+import './input.less';
 import PropTypes from "prop-types";
 
 export const Input = (props) => {

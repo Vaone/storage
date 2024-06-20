@@ -15,12 +15,10 @@
 .filelist {
   margin-top: 20px;
   padding: 10px 0;
-  border-top: 1px solid @rainforest;
-  border-bottom: 1px solid @rainforest;
 
   &__header {
     display: grid;
-    grid-template-columns: 1fr 4fr repeat(4, 1fr);
+    grid-template-columns: 0.5fr 4fr repeat(4, 1fr);
 
     font-weight: 600;
     font-size: 20px;
@@ -38,13 +36,22 @@
     grid-column-start: 6;
     justify-self: center;
   }
+
+  @media screen and (max-width: 768px) {
+    &__header {
+      grid-template-columns: 1fr 1fr repeat(2, 1fr);
+    }
+
+    &__date, &__size {
+      display: none; // или другие стили, если хотите скрыть или изменить представление
+    }
+  }
 }
 
 .filelist-plate>div {
   display: flex;
   width: 100%;
 
-  margin-top: 20px;
   padding: 50px 0;
   border-top: 1px solid @rainforest;
   border-bottom: 1px solid @rainforest;

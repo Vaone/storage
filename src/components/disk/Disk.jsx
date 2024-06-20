@@ -8,7 +8,7 @@ import {
 } from "../../reducers/fileReducer";
 import { Btn } from "../UI/button/Btn";
 import { FileList } from "./fileList/FileList";
-import "./disk.css";
+import "./disk.less";
 import { Popup } from "./popup/Popup";
 import { Uploader } from "./uploader/Uploader";
 

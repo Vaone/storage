@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./navbar.css";
+import "./navbar.less";
 import Logo from "../../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../reducers/userReducer";
@@ -48,7 +48,7 @@ export const Navbar = () => {
       </Link>
       <div className="navbar__header">
         <Link to="/" className="navbar__name">
-          First MERN Project
+          Cloud Strg
         </Link>
 
         {isAuth && (

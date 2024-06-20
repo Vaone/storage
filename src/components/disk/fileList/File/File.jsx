@@ -1,4 +1,4 @@
-import './file.css';
+import './file.less';
 import dirLogo from '../../../../assets/img/folder.svg';
 import fileLogo from '../../../../assets/img/file.svg';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +8,10 @@ import { downloadFile, deleteFile, getFiles } from '../../../../actions/file';
 import sizeFormat from '../../../../utils/sizeFormat';
 import PropTypes from "prop-types";
 import { forwardRef } from "react";
+import {TrashIcon} from "../../../../assets/img/trash.jsx";
+import {DownloadIcon} from "../../../../assets/img/download.jsx";
 
+// eslint-disable-next-line react/display-name
 export const File = forwardRef((props, ref) => {
   const {file, sort} = props
   const dispatch = useDispatch();
@@ -38,10 +41,10 @@ export const File = forwardRef((props, ref) => {
 
   if (filesView === 'plate') {
     return (
-      <div className='file-plate' onClick={() => openDir(file)} ref={ref}>
-        <img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className="file-plate__img"/>
+      <div className="file-plate" onClick={() => openDir(file)} ref={ref}>
+        <div className="file-plate__img-wrapper"><img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className="file-plate__img"/></div>
         <div className="file-plate__name">{file.name}</div>
-        <div className="file-plate__btns"> 
+        <div className="file-plate__btns">
           {file.type !== 'dir' && <button className='file-plate__btn' onClick={(e)=> downloadClickHandler(e)}>Delete</button>}
           <button className='file-plate__btn' onClick={(e)=>{deleteClickHandler(e)}}>download</button>
         </div>
@@ -50,13 +53,15 @@ export const File = forwardRef((props, ref) => {
   }
   if (filesView === 'list') {
     return (
-      <div className='file' onClick={() => openDir(file)} ref={ref}>
-        <img src={file.type === 'dir' ? dirLogo : fileLogo} alt="" className="file__img"/>
-        <div className="file__name">{file.name}</div>
+      <div className="file" onClick={() => openDir(file)} ref={ref}>
+          <div className="file__img-wrapper"><img src={file.type === 'dir' ? dirLogo : fileLogo} alt="folder image" className="file__img"/></div>
+          <div className="file__name">{file.name}</div>
+          <div>
+              <Btn id="btn__delete" onClick={(e)=>{deleteClickHandler(e)}}><TrashIcon height={80}/></Btn>
+          </div>
+          <div>{file.type !== 'dir' && <Btn onClick={(e)=> downloadClickHandler(e)} id="btn__download"><DownloadIcon height={80} /></Btn>}</div>
         <div className="file__date">{file.date.slice(0,10)}</div>
         <div className="file__size">{sizeFormat(file.size)}</div>
-        {file.type !== 'dir' && <Btn onClick={(e)=> downloadClickHandler(e)} id="btn__download">Скачать</Btn>}
-        <Btn id="btn__delete" onClick={(e)=>{deleteClickHandler(e)}}>Удалить</Btn>
       </div>
     )
   }

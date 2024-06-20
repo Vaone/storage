@@ -1,4 +1,4 @@
-import './btn.css';
+import './btn.less';
 import PropTypes from "prop-types";
 
 export const Btn = ({children, ...props}) => {

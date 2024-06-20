@@ -17,13 +17,36 @@
   &:hover {
     box-shadow: 0 0 10px @darkred;
   }
+
+  @media (max-width: 768px) {
+    min-width: 80px;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    min-width: 70px;
+    padding: 6px;
+    font-size: 13px;
+  }
 }
 
 .btnGreen {
   background: @lightgreen;
   color: @darkgreen;
+
   &:hover {
     box-shadow: 0 0 10px @lightgreen;
+  }
+
+  @media (max-width: 768px) {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 6px;
+    font-size: 13px;
   }
 }
 
@@ -31,12 +54,29 @@
   position: absolute;
   top: 0;
   right: 10px;
-
   min-width: auto;
 
   &._sm {
     padding: 3px;
     border-radius: 5px;
     background: @spectral;
+
+    @media (max-width: 768px) {
+      padding: 2px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 1px;
+      border-radius: 3px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    right: 8px;
+  }
+
+  @media (max-width: 480px) {
+    right: 5px;
   }
 }

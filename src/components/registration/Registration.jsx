@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./registration.css";
+import "./registration.less";
 import { Input } from "../UI/input/Input";
 import { registration } from "../../actions/user";
 import { Btn } from "../UI/button/Btn";

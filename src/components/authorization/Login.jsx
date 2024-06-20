@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./authorization.css";
+import "./authorization.less";
 import { Input } from "../UI/input/Input";
 import { login } from "../../actions/user";
 import { useDispatch } from "react-redux";

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { File } from "./File/File";
-import "./fileList.css";
+import "./fileList.less";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import PropTypes from "prop-types";
 import { useRef } from "react";

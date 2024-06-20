@@ -1,7 +1,6 @@
 @import "../../utils/colors";
 
 .registration {
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -13,5 +12,23 @@
     font-weight: 600;
     color: @rainforest;
     margin-bottom: 10px;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+
+    &__header {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    margin-top: 10px;
+
+    &__header {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
   }
 }

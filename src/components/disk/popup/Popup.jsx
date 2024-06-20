@@ -4,7 +4,7 @@ import { setPopupVisible } from '../../../reducers/fileReducer';
 import { createDir } from '../../../actions/file';
 import { Btn } from '../../UI/button/Btn';
 import { Input } from '../../UI/input/Input';
-import './popup.css';
+import './popup.less';
 
 export const Popup = () => {
   // state name of directory

@@ -6,4 +6,12 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  css: {
+    preprocessorOptions: {
+      less: {
+        // Настройки для LESS
+        javascriptEnabled: true
+      }
+    }
+  }
 })
