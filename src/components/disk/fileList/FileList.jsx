@@ -40,15 +40,17 @@ export const FileList = ({sort}) => {
   if (filesView === 'list') {
     return (
       <div className="filelist">
-        <div className="filelist__header">
-          <div className="filelist__name">Название</div>
-          <div className="filelist__date">Дата</div>
-          <div className="filelist__size">Размер</div>
-        </div>
-        <TransitionGroup>
-          {files.map((file) => (
-            <CSSTransition
-              nodeRef={nodeRef}
+          <div className="filelist__header">
+              <div className="filelist__name">Название</div>
+              <div className="filelist__date">Дата</div>
+              <div className="filelist__size">Размер</div>
+              <div></div>
+              <div></div>
+          </div>
+          <TransitionGroup>
+              {files.map((file) => (
+                  <CSSTransition
+                      nodeRef={nodeRef}
               key={file._id}
               timeout={500}
               classNames={"file"}
