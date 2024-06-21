@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../reducers/userReducer";
 import { searchFiles, getFiles } from "../../actions/file";
 import { showLoader } from "../../reducers/appReducer";
-import defaultAvatar from "../../assets/img/defaultAvatar.svg";
 import { API_URL } from "../../config";
 import { Link } from "react-router-dom";
+import {DefaultAvatar} from "../../assets/img/defaultAvatar.jsx";
 
 export const Navbar = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
@@ -16,9 +16,6 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(false);
-  const avatar = (currentUser.avatar)
-    ? `${API_URL + currentUser.avatar}`
-    : defaultAvatar;
 
   function searchHandler(searchValue) {
     setSearch(searchValue);
@@ -80,10 +77,12 @@ export const Navbar = () => {
           <div className="navbar__container">
             {isAuth && (
               <Link to="/profile">
-                <img className="navbar__avatar" src={avatar} alt="" />
+                {
+                  currentUser.avatar ? <img className="navbar__avatar" src={API_URL + currentUser.avatar} alt=""/> : <DefaultAvatar className="navbar__avatar" />
+                }
               </Link>
             )}
-            <div className="navbar__logout" onClick={() => dispatch(logout())}>
+              <div className="navbar__logout" onClick={() => dispatch(logout())}>
               Выход
             </div>
           </div>
