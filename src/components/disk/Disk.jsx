@@ -11,6 +11,8 @@ import { FileList } from "./fileList/FileList";
 import "./disk.less";
 import { Popup } from "./popup/Popup";
 import { Uploader } from "./uploader/Uploader";
+import { ListViewIcon } from "../../assets/img/listViewIcon.jsx";
+import {PlateViewIcon} from "../../assets/img/plateViewIcon.jsx";
 
 export const Disk = () => {
   // hook useDispatch
@@ -19,6 +21,8 @@ export const Disk = () => {
   const currentDir = useSelector((state) => state.files.currentDir);
   // get directoryStack from state
   const dirStack = useSelector((state) => state.files.dirStack);
+  const filesView = useSelector(state=> state.files.filesView)
+
   const loader = useSelector((state) => state.app.loader);
   // drag and drop state
   const [dragEnter, setDragEnter] = useState(false);
@@ -115,18 +119,23 @@ export const Disk = () => {
           />
         </div>
         <div className="disk__uiContainter">
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value)}
-            className="disk__select"
-            name="disk__select"
-          >
-            <option value="name">По имени</option>
-            <option value="type">По типу</option>
-            <option value="date">По дате</option>
-          </select>
-          <button className="disk__plate" onClick={()=>dispatch(setFilesView("plate"))} />
-          <button className="disk__list" onClick={()=>dispatch(setFilesView("list"))} />
+          <div>
+            <select
+                value={sort}
+                onChange={(e) => setSort(e.target.value)}
+                className="disk__select"
+                name="disk__select"
+            >
+              <option value="name">По имени</option>
+              <option value="type">По типу</option>
+              <option value="date">По дате</option>
+            </select>
+          </div>
+
+          <button className="disk__plate" onClick={() => dispatch(setFilesView("plate"))}><PlateViewIcon
+              className={filesView === 'plate' ? 'disk__plate-icon active' : 'disk__plate-icon'}/></button>
+          <button className="disk__list" onClick={() => dispatch(setFilesView("list"))}><ListViewIcon
+              className={filesView === 'list' ? 'disk__list-icon active' : 'disk__list-icon'}/></button>
         </div>
       </div>
 
