@@ -6,7 +6,9 @@
   &__btns {
     display: flex;
     justify-content: space-around;
-    padding-top: 10px;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
   }
 
   &__upload {
@@ -14,7 +16,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
 
     &-label {
       font-size: 18px;
@@ -38,15 +39,28 @@
 
   &__select {
     padding: 10px;
-    border: 2px solid rgba(22, 178, 218, 0.726);
-    color: rgba(22, 178, 218, 0.726);
+    border: 1px solid @rainforest;
+    color: @rainforest;
+    border-radius: 5px;
+
+    width: 200px; /* ширина */
+    font-size: 16px; /* размер шрифта */
+    background-color: #fff; /* цвет фона */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
     &:focus {
       outline: none;
+      border-color: @rainforest; /* цвет границы при фокусе */
+      box-shadow: 0 0 5px fade(@rainforest, 50%); /* тень */
+    }
+
+    option {
+      background-color: #fff; /* цвет фона для опций */
+      color: #333; /* цвет текста для опций */
     }
 
     &:active {
-      border-radius: 15px;
+      border-radius: 5px;
     }
   }
 
@@ -54,6 +68,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
   }
 
   &__list, &__plate {
@@ -62,16 +77,14 @@
     border: none;
     outline: none;
     cursor: pointer;
-    background: no-repeat center center;
-    background-size: contain;
-    margin: 0 10px;
-  }
+    color: @rainforest;
+    padding: 0;
 
-  &__list {
-    background-image: url('../../assets/img/list.svg');
-  }
-  &__plate {
-    background-image: url('../../assets/img/plate.svg');
+    &:focus {
+      outline: none;
+    }
+
+
   }
 
   @media (max-width: 768px) {
@@ -110,6 +123,10 @@
       margin: 0 3px;
     }
   }
+}
+
+.active {
+  color: red;
 }
 
 .drop-area {

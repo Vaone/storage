@@ -16,6 +16,7 @@
   &__logo {
     height: 40px;
     width: 100px;
+    border-radius: 15px;
 
     @media (max-width: 535px) {
       display: none;
@@ -43,10 +44,14 @@
     width: 200px;
     border: none;
     padding: 8px;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-left: 20px;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
+
+    &::placeholder {
+      color: white;
+    }
 
     &:focus {
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
@@ -74,6 +79,10 @@
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
   &__logout {
