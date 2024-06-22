@@ -73,15 +73,14 @@ export const deleteAvatar =  () => {
 
 export const fetchAvatar = async (setAvatarUrl) => {
     try {
-        const response = await fetch('/api/avatar', {
-            method: 'GET',
+        const response = await axios.get('/api/avatar', {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
             },
         });
-        if (response.ok) {
-            const avatar = await response.blob();
-            setAvatarUrl(URL.createObjectURL(avatar));
+        if (response.status === 200) {
+            const avatar = response.data; // предполагается, что сервер возвращает URL аватара
+            setAvatarUrl(avatar);
         } else {
             console.error('Failed to fetch avatar:', response.statusText);
         }
