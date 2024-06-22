@@ -39,11 +39,7 @@ export const Navbar = () => {
   }
   useEffect(() => {
     dispatch(fetchAvatar());
-
-    // Clean up the URL object when component unmounts
-    return () => URL.revokeObjectURL();
 }, []);
-
 
   return (
     <div className="navbar">
