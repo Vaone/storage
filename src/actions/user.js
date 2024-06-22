@@ -70,3 +70,22 @@ export const deleteAvatar =  () => {
       }
   }
 }
+
+export const fetchAvatar = async (setAvatarUrl) => {
+    try {
+        const response = await fetch('/api/avatar', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+        });
+        if (response.ok) {
+            const avatar = await response.blob();
+            setAvatarUrl(URL.createObjectURL(avatar));
+        } else {
+            console.error('Failed to fetch avatar:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error fetching avatar:', error);
+    }
+};

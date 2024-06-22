@@ -1,18 +1,17 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import "./navbar.less";
 import Logo from "../../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../reducers/userReducer";
 import { searchFiles, getFiles } from "../../actions/file";
 import { showLoader } from "../../reducers/appReducer";
-import { API_URL } from "../../config";
 import { Link } from "react-router-dom";
 import {DefaultAvatar} from "../../assets/img/defaultAvatar.jsx";
+import {fetchAvatar} from "../../actions/user.js";
 
 export const Navbar = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
   const currentDir = useSelector((state) => state.files.currentDir);
-  const currentUser = useSelector((state) => state.user.currentUser);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(false);
@@ -37,6 +36,16 @@ export const Navbar = () => {
       dispatch(getFiles(currentDir));
     }
   }
+
+  const [avatarUrl, setAvatarUrl] = useState('');
+
+  useEffect(() => {
+    dispatch(fetchAvatar(setAvatarUrl));
+
+    // Clean up the URL object when component unmounts
+    return () => URL.revokeObjectURL(avatarUrl);
+}, []);
+
 
   return (
     <div className="navbar">
@@ -78,7 +87,7 @@ export const Navbar = () => {
             {isAuth && (
               <Link to="/profile">
                 {
-                  currentUser.avatar ? <img className="navbar__avatar" src={API_URL + currentUser.avatar} alt=""/> : <DefaultAvatar className="navbar__avatar" />
+                  avatarUrl ? <img className="navbar__avatar" src={avatarUrl} alt=""/> : <DefaultAvatar className="navbar__avatar" />
                 }
               </Link>
             )}
