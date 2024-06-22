@@ -1,9 +1,12 @@
 const SET_USER = "SET_USER";
 const LOGOUT = "LOGOUT";
 
+
+
 const defaultState = {
   currentUser: {},
   isAuth: false,
+  avatarUrl: null
 };
 
 export function userReducer(state = defaultState, action) {
@@ -21,7 +24,8 @@ export function userReducer(state = defaultState, action) {
         currentUser: {},
         isAuth: false,
       };
-
+    case 'FETCH_AVATAR_SUCCESS':
+      return { ...state, avatarUrl: action.payload };
     default:
       return state;
   }
@@ -29,3 +33,7 @@ export function userReducer(state = defaultState, action) {
 
 export const setUser = user => ({ type: SET_USER, payload: user });
 export const logout = () => ({ type: LOGOUT});
+export const setAvatar = (avatarUrl) => ({
+  type: 'FETCH_AVATAR_SUCCESS',
+  payload: avatarUrl,
+});

@@ -15,6 +15,7 @@ export const Navbar = () => {
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(false);
+  const avatarUrl = useSelector((state) => state.user.avatarUrl);
 
   function searchHandler(searchValue) {
     setSearch(searchValue);
@@ -36,14 +37,11 @@ export const Navbar = () => {
       dispatch(getFiles(currentDir));
     }
   }
-
-  const [avatarUrl, setAvatarUrl] = useState('');
-
   useEffect(() => {
-    dispatch(fetchAvatar(setAvatarUrl));
+    dispatch(fetchAvatar());
 
     // Clean up the URL object when component unmounts
-    return () => URL.revokeObjectURL(avatarUrl);
+    return () => URL.revokeObjectURL();
 }, []);
 
 
