@@ -78,7 +78,7 @@ export const Navbar = () => {
             {isAuth && (
               <Link to="/profile">
                 {
-                    currentUser.avatar ? <img className="navbar__avatar" src={API_URL + currentUser.avatar} alt=""/> : <DefaultAvatar className="navbar__avatar" />
+                    currentUser.avatar ? <img className="navbar__avatar" src={API_URL + 'static/' + currentUser.avatar} alt=""/> : <DefaultAvatar className="navbar__avatar" />
                 }
               </Link>
             )}
