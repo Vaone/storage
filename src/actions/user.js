@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setAvatar, setUser} from '../reducers/userReducer';
+import { setUser} from '../reducers/userReducer';
 import { API_URL } from '../config';
 
 export const registration = async (email, password) => {
@@ -70,23 +70,3 @@ export const deleteAvatar =  () => {
       }
   }
 }
-
-export const fetchAvatar = (userId) => {
-    return async (dispatch) => {
-        try {
-            const response = await axios.get(`/api/avatar/${userId}`, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
-                },
-            });
-            if (response.status === 200) {
-                const avatarUrl = response.data.avatarUrl; // предполагается, что сервер возвращает URL аватара
-                dispatch(setAvatar(avatarUrl));
-            } else {
-                console.error('Failed to fetch avatar:', response.statusText);
-            }
-        } catch (error) {
-            console.error('Error fetching avatar:', error);
-        }
-    };
-};

@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
 import "./navbar.less";
 import Logo from "../../assets/img/logo.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,16 +6,16 @@ import { logout } from "../../reducers/userReducer";
 import { searchFiles, getFiles } from "../../actions/file";
 import { showLoader } from "../../reducers/appReducer";
 import { Link } from "react-router-dom";
-import {DefaultAvatar} from "../../assets/img/defaultAvatar.jsx";
-import {fetchAvatar} from "../../actions/user.js";
+import { DefaultAvatar } from "../../assets/img/defaultAvatar.jsx";
+import { API_URL } from "../../config.js";
 
 export const Navbar = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const currentDir = useSelector((state) => state.files.currentDir);
   const dispatch = useDispatch();
   const [search, setSearch] = useState("");
   const [searchTimeout, setSearchTimeout] = useState(false);
-  const avatarUrl = useSelector((state) => state.user.avatarUrl);
 
   function searchHandler(searchValue) {
     setSearch(searchValue);
@@ -37,9 +37,6 @@ export const Navbar = () => {
       dispatch(getFiles(currentDir));
     }
   }
-  useEffect(() => {
-    dispatch(fetchAvatar());
-}, []);
 
   return (
     <div className="navbar">
@@ -81,7 +78,7 @@ export const Navbar = () => {
             {isAuth && (
               <Link to="/profile">
                 {
-                  avatarUrl ? <img className="navbar__avatar" src={avatarUrl} alt=""/> : <DefaultAvatar className="navbar__avatar" />
+                    currentUser.avatar ? <img className="navbar__avatar" src={API_URL + currentUser.avatar} alt=""/> : <DefaultAvatar className="navbar__avatar" />
                 }
               </Link>
             )}
